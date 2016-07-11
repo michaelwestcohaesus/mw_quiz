@@ -1,0 +1,57 @@
+{
+	"title": "Quiz",
+	"welcome message": "Are you ready to begin?",
+	"questions": [{
+		"title": "Curiosity is a car-sized robotic rover exploring Gale Crater on Mars, but which year did it land on the red planet?",
+		"type": "radio",
+		"has correct": true,
+		"answers": [{
+			"title": "1992",
+			"correct": false
+		}, {
+			"title": "2014",
+			"correct": false
+		}, {
+			"title": "2002",
+			"correct": false
+		}, {
+			"title": "2012",
+			"correct": true
+		}]
+	}, {
+		"title": "E=mc&sup2; is Einstein's most famous equation, but what does the c stand for?",
+		"type": "radio",
+		"has correct": true,
+		"answers": [{
+			"title": "Distance",
+			"correct": false
+		}, {
+			"title": "Mass",
+			"correct": false
+		}, {
+			"title": "Speed of light",
+			"correct": true
+		}, {
+			"title": "Time",
+			"correct": false
+		}]
+	}, {
+		"title": "Jupiter, the largest planet in our solar system has a whopping 67 moons, but which one is the largest?",
+		"type": "radio",
+		"has correct": true,
+		"answers": [{
+			"title": "Ganymede",
+			"correct": true
+		}, {
+			"title": "Europa",
+			"correct": false
+		}, {
+			"title": "Io",
+			"correct": false
+		}, {
+			"title": "Callisto",
+			"correct": false
+		}]
+	}],
+  "thank you message": "Thanks for taking part!"
+}
