@@ -1,5 +1,5 @@
 /*custom font*/
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
 /*basic reset*/
 * {
   margin: 0;
@@ -10,7 +10,7 @@ html {
   background: url("http://imgsrc.hubblesite.org/hu/db/images/hs-2008-34-a-1280x800_wallpaper.jpg"); }
 
 body {
-  font-family: montserrat, arial, verdana; }
+  font-family: Ubuntu, arial, verdana; }
 
 /*form styles*/
 #msform {
@@ -47,7 +47,7 @@ body {
   border-radius: 3px;
   margin-bottom: 10px;
   box-sizing: border-box;
-  font-family: montserrat;
+  font-family: Ubuntu;
   color: #2C3E50;
   font-size: 13px; }
 
