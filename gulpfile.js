@@ -26,7 +26,7 @@ gulp.task('compresscss', function() {
 });
 //Concat js
 gulp.task('concatjs', function() {
-  return gulp.src(['src/js/dynamicLoad.js', 'src/js/jsonHandler.js', 'src/js/serializeObject.js', 'src/js/scoreCalculator.js'])
+  return gulp.src(['src/js/serializeObject.js', 'src/js/scoreCalculator.js', 'src/js/jsonHandler.js', 'src/js/dynamicLoad.js'])
     .pipe(concat('main.js'))
     .pipe(gulp.dest('src/js/main/'));
 });

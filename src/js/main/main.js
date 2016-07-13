@@ -1,3 +1,97 @@
+//serializeObject.js
+//Allows a form submission to be transformed into a json object
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+//scoreCalculator.js
+//calculates correct answers and displays score to user upon form submission
+$(function() {
+    $('form').submit(function() {
+        //Create json object from form submission
+        var answerData = $(this).serializeObject();
+        // console.log(Object.keys(answerData).length);
+        $.getJSON('../../src/js/formdata.json', function(formData){
+          console.log(formData);
+          //truth will count the amount of correct answers given in the submitted form
+          var truths = 0;
+          // console.log(Object.keys(answerData).length);
+          //checking if submitted answers have a correct property with value true in formdata.json,
+          //if so 1 truth will be added to the count
+          for (var i = 0; i < Object.keys(answerData).length; i++) {
+            // console.log(parseInt(answerData['question'+((i+1).toString())]));
+            // console.log(formData.questions[i].answers[parseInt(answerData['question'+((i+1).toString())])-1].correct);
+            if(formData.questions[i].answers[parseInt(answerData['question'+((i+1).toString())])-1].correct == true) {
+              truths ++;
+            }
+            // console.log(formData.questions[i].answers[i].correct)
+            // if(formData.questions[i].answers[parseInt(answerData['question'+(i+1)])].correct == true) {
+            //   var truths ++;
+            // }
+          }
+          console.log(truths);
+          //Append truth count to result element within the last fieldset,
+          //displaying a score to the user upon form submission
+          $('#result').html('<span> You got ' + truths.toString() + ' out of ' + (formData.questions.length).toString() + ' correct.</span>');
+        });
+        // $('#output').text(JSON.stringify(answerData, undefined, 2));
+        return false;
+    });
+});
+
+(function(){
+	var content = document.getElementById('content');
+	var html = '';
+	var json = (function () {
+    var json = null;
+    $.ajax({
+        'async': false,
+        'global': false,
+        'url': '../../src/js/formdata.json',
+        'dataType': "json",
+        'success': function (data) {
+            json = data;
+        }
+    });
+    return json;
+	})();
+
+	Handlebars.registerHelper('bold', function(text){
+		text = Handlebars.escapeExpression(text);
+		return new Handlebars.SafeString(
+			'<b>' + text + '</b>'
+		);
+	});
+
+	Handlebars.registerHelper('list', function(items, options){
+		var out = '<ul>';
+
+		for(var i = 0, length = items.length; i < length; i++){
+			out += '<li>' + options.fn(items[i]) + '</li>';
+		}
+
+		return out + '</ul>';
+	});
+
+	var template = Handlebars.compile(document.getElementById('questions-template').innerHTML);
+
+	content.innerHTML = template(json);
+
+})();
+
 //dynamicLoad.js
 //Allows fieldsets to load one at a time, with next and back buttons
 var current_fs, next_fs, previous_fs; //fieldsets
@@ -96,80 +190,4 @@ $(".submit").click(function(){
 
 $(".startagain").click(function(){
 	location.reload();
-});
-
-//json handler
-//appends correct question titles and answers to each respective fieldset (1 per question)
-$(function() {
-  $.getJSON('../../src/js/formdata.json', function(data){
-    console.log(data);
-    //set quiz title based on value in test.json
-    $('#title').html('<p>' + data.title + '</p>');
-    //set welcome message based on value in test.json
-    $('#welcome').html('<p>' + data['welcome message'] + '</p>');
-    //set thank you message based on value in test.json
-    $('#thankyou').html('<p>' + data['thank you message'] + '</p>');
-    //iterate through quiz length to append question title
-    for (var i = 0; i < data.questions.length; i++) {
-      $('#question'+((i+1).toString())).html('<p>' + data.questions[i].title + '</p>');
-      //for each question, iterate through answers and append answer title to element in index.html
-      for (var j = 0; j < data.questions[i].answers.length; j++) {
-        $('#'+((i+1).toString())+"answer"+((j+1).toString())).html(data.questions[i].answers[j].title);
-      };
-    };
-  });
-});
-
-//serializeObject.js
-//Allows a form submission to be transformed into a json object
-$.fn.serializeObject = function()
-{
-    var o = {};
-    var a = this.serializeArray();
-    $.each(a, function() {
-        if (o[this.name] !== undefined) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
-};
-
-//scoreCalculator.js
-//calculates correct answers and displays score to user upon form submission
-$(function() {
-    $('form').submit(function() {
-        //Create json object from form submission
-        var answerData = $(this).serializeObject();
-        // console.log(Object.keys(answerData).length);
-        $.getJSON('../../src/js/formdata.json', function(formData){
-          console.log(formData);
-          //truth will count the amount of correct answers given in the submitted form
-          var truths = 0;
-          // console.log(Object.keys(answerData).length);
-          //checking if submitted answers have a correct property with value true in formdata.json,
-          //if so 1 truth will be added to the count
-          for (var i = 0; i < Object.keys(answerData).length; i++) {
-            // console.log(parseInt(answerData['question'+((i+1).toString())]));
-            // console.log(formData.questions[i].answers[parseInt(answerData['question'+((i+1).toString())])-1].correct);
-            if(formData.questions[i].answers[parseInt(answerData['question'+((i+1).toString())])-1].correct == true) {
-              truths ++;
-            }
-            // console.log(formData.questions[i].answers[i].correct)
-            // if(formData.questions[i].answers[parseInt(answerData['question'+(i+1)])].correct == true) {
-            //   var truths ++;
-            // }
-          }
-          // console.log(truths);
-          //Append truth count to result element within the last fieldset,
-          //displaying a score to the user upon form submission
-          $('#result').html('<span> You got ' + truths.toString() + ' correct answers.</span>');
-        });
-        // $('#output').text(JSON.stringify(answerData, undefined, 2));
-        return false;
-    });
 });

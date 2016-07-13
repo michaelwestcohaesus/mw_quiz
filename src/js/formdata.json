@@ -1,57 +1,139 @@
 {
 	"title": "Quiz",
-	"welcome message": "Are you ready to begin?",
+	"welcomemessage": "Are you ready to begin?",
+	"submitmessage" : "That's it, you're done! Let's see what you scored!",
 	"questions": [{
+		"name": "question1",
 		"title": "Curiosity is a car-sized robotic rover exploring Gale Crater on Mars, but which year did it land on the red planet?",
 		"type": "radio",
 		"has correct": true,
 		"answers": [{
+			"value": 1,
 			"title": "1992",
 			"correct": false
 		}, {
+			"value": 2,
 			"title": "2014",
 			"correct": false
 		}, {
+			"value": 3,
 			"title": "2002",
 			"correct": false
 		}, {
+			"value": 4,
 			"title": "2012",
 			"correct": true
 		}]
 	}, {
-		"title": "E=mc&sup2; is Einstein's most famous equation, but what does the c stand for?",
+		"name": "question2",
+		"title": "F=ma describes Newton's second law of motion, but what does the a stand for?",
 		"type": "radio",
 		"has correct": true,
 		"answers": [{
-			"title": "Distance",
+			"value": 1,
+			"title": "Air resistance",
 			"correct": false
 		}, {
-			"title": "Mass",
+			"value": 2,
+			"title": "Avagadro's number",
 			"correct": false
 		}, {
-			"title": "Speed of light",
+			"value": 3,
+			"title": "Acceleration",
 			"correct": true
 		}, {
-			"title": "Time",
+			"value": 4,
+			"title": "Area",
 			"correct": false
 		}]
 	}, {
-		"title": "Jupiter, the largest planet in our solar system has a whopping 67 moons, but which one is the largest?",
+		"name": "question3",
+		"title": "Jupiter, the largest planet in our solar system, has a whopping 67 moons, but which one is the largest?",
 		"type": "radio",
 		"has correct": true,
 		"answers": [{
+			"value": 1,
 			"title": "Ganymede",
 			"correct": true
 		}, {
+			"value": 2,
 			"title": "Europa",
 			"correct": false
 		}, {
+			"value": 3,
 			"title": "Io",
 			"correct": false
 		}, {
+			"value": 4,
 			"title": "Callisto",
 			"correct": false
 		}]
+	}, {
+		"name": "question4",
+		"title": "What type of blackhole resides at the center of our galaxy?",
+		"type": "radio",
+		"has correct": true,
+		"answers": [{
+			"value": 1,
+			"title": "Miniture",
+			"correct": false
+		}, {
+			"value": 2,
+			"title": "Super huge",
+			"correct": false
+		}, {
+			"value": 3,
+			"title": "Stellar",
+			"correct": false
+		}, {
+			"value": 4,
+			"title": "Super massive",
+			"correct": true
+		}]
+	}, {
+		"name": "question5",
+		"title": "Which of the following forces is not fundamental?",
+		"type": "radio",
+		"has correct": true,
+		"answers": [{
+			"value": 1,
+			"title": "Electricity",
+			"correct": true
+		}, {
+			"value": 2,
+			"title": "Gravity",
+			"correct": false
+		}, {
+			"value": 3,
+			"title": "Strong",
+			"correct": false
+		}, {
+			"value": 4,
+			"title": "Weak",
+			"correct": false
+		}]
+	}, {
+		"name": "question6",
+		"title": "What is the most common element in the visible universe?",
+		"type": "radio",
+		"has correct": true,
+		"answers": [{
+			"value": 1,
+			"title": "Carbon",
+			"correct": false
+		}, {
+			"value": 2,
+			"title": "Nitrogen",
+			"correct": false
+		}, {
+			"value": 3,
+			"title": "Helium",
+			"correct": false
+		}, {
+			"value": 4,
+			"title": "Hydrogen",
+			"correct": true
+		}]
 	}],
-  "thank you message": "Thanks for taking part!"
+  "thankyoumessage": "Thanks for taking part!"
 }

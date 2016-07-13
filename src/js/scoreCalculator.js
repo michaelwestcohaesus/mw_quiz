@@ -23,10 +23,10 @@ $(function() {
             //   var truths ++;
             // }
           }
-          // console.log(truths);
+          console.log(truths);
           //Append truth count to result element within the last fieldset,
           //displaying a score to the user upon form submission
-          $('#result').html('<span> You got ' + truths.toString() + ' correct answers.</span>');
+          $('#result').html('<span> You got ' + truths.toString() + ' out of ' + (formData.questions.length).toString() + ' correct.</span>');
         });
         // $('#output').text(JSON.stringify(answerData, undefined, 2));
         return false;

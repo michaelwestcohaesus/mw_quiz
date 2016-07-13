@@ -6,107 +6,62 @@
   <link rel="stylesheet" type="text/css" href="../../dist/css/main.min.css">
 </head>
 <body>
-	<form id="msform">
-		<fieldset>
-			<h1 id="title"></h1>
-			<h2 class="fs-title" id="welcome"></h2>
-			<input type="button" name="next" class="next action-button" value="Let's go" />
-		</fieldset>
-		<fieldset>
-			<h2 class="fs-title" id="question1"></h2>
-			<div class="radio">
-				<label>
-					<input type="radio" name="question1" id="optionsRadios1" value="1">
-					<span id="1answer1"></span>
-				</label>
-			</div>
-			<div class="radio">
-				<label>
-					<input type="radio" name="question1" id="optionsRadios2" value="2">
-					<span id="1answer2"></span>
-				</label>
-			</div>
-			<div class="radio">
-				<label>
-					<input type="radio" name="question1" id="optionsRadios3" value="3">
-					<span id="1answer3"></span>
-				</label>
-			</div>
-			<div class="radio">
-				<label>
-					<input type="radio" name="question1" id="optionsRadios4" value="4">
-					<span id="1answer4"></span>
-				</label>
-			</div>
-			<input type="button" name="next" class="next action-button" value="Next" />
-		</fieldset>
-		<fieldset>
-			<h2 class="fs-title" id="question2"></h2>
-			<div class="radio">
-				<label>
-					<input type="radio" name="question2" id="optionsRadios1" value="1">
-					<span id="2answer1"></span>
-				</label>
-			</div>
-			<div class="radio">
-				<label>
-					<input type="radio" name="question2" id="optionsRadios2" value="2">
-					<span id="2answer2"></span>
-				</label>
-			</div>
-			<div class="radio">
-				<label>
-					<input type="radio" name="question2" id="optionsRadios3" value="3">
-					<span id="2answer3"></span>
-				</label>
-			</div>
-			<div class="radio">
-				<label>
-					<input type="radio" name="question2" id="optionsRadios4" value="4">
-					<span id="2answer4"></span>
-				</label>
-			</div>
-			<input type="button" name="previous" class="previous action-button" value="Previous" />
-			<input type="button" name="next" class="next action-button" value="Next" />
-		</fieldset>
-		<fieldset>
-			<h2 class="fs-title" id="question3"></h2>
-			<div class="radio">
-				<label>
-					<input type="radio" name="question3" id="optionsRadios1" value="1">
-					<span id="3answer1"></span>
-				</label>
-			</div>
-			<div class="radio">
-				<label>
-					<input type="radio" name="question3" id="optionsRadios2" value="2">
-					<span id="3answer2"></span>
-				</label>
-			</div>
-			<div class="radio">
-				<label>
-					<input type="radio" name="question3" id="optionsRadios3" value="3">
-					<span id="3answer3"></span>
-				</label>
-			</div>
-			<div class="radio">
-				<label>
-					<input type="radio" name="question3" id="optionsRadios4" value="4">
-					<span id="3answer4"></span>
-				</label>
-			</div>
-			<input type="button" name="previous" class="previous action-button" value="Previous" />
-			<input type="submit" name="submit" class="submit action-button" value="Finish" />
-		</fieldset>
-		<fieldset>
-			<h2 class="fs-title" id="thankyou"></h2>
-			<!-- <h3>JSON Output</h3>
+  <form id="msform">
+    <section id="content">
+    </section>
+  </form>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script id="questions-template" type="text/template">
+    <fieldset>
+      <h1>{{title}}</h1>
+      <h2 class="fs-title">{{welcomemessage}}</h2>
+      <input type="button" name="next" class="next action-button" value="Let's go" />
+    </fieldset>
+    {{#each questions}}
+    {{#if @first}}
+        <fieldset>
+          <h2 class="fs-title">{{title}}</h2>
+          {{#answers}}
+          <div class="radio">
+            <label>
+              <input type="radio" name="{{../name}}" value="{{value}}">
+              <span>{{title}}</span>
+            </label>
+          </div>
+          {{/answers}}
+        <input type="button" name="next" class="next action-button" value="Next" />
+      </fieldset>
+    {{else}}
+      <fieldset>
+        <h2 class="fs-title">{{title}}</h2>
+        {{#answers}}
+        <div class="radio">
+          <label>
+            <input type="radio" name='{{../name}}' value="{{value}}">
+            <span>{{title}}</span>
+          </label>
+        </div>
+        {{/answers}}
+      <input type="button" name="previous" class="previous action-button" value="Previous" />
+  		<input type="button" name="next" class="next action-button" value="Next" />
+      </fieldset>
+    {{/if}}
+    {{/each}}
+    <fieldset>
+      <h1>{{title}}</h1>
+      <h2 class="fs-title">{{submitmessage}}</h2>
+      <input type="button" name="previous" class="previous action-button" value="Previous" />
+			<input type="submit" name="submit" class="submit action-button" value="Submit" />
+    </fieldset>
+    <fieldset>
+      <h2 class="fs-title">{{thankyoumessage}}</h2>
+      <!-- <h3>JSON Output</h3>
       <pre id="output">
       </pre> -->
-			<h3 id="result"></h3>
-			<input type="button" name="startagain" class="startagain action-button" value="Start again" />
-		</fieldset>
-	</form>
+      <h3 id="result"></h3>
+      <input type="button" name="startagain" class="startagain action-button" value="Start again" />
+    </fieldset>
+  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
   <script src="../../dist/js/main.min.js" type="text/javascript" charset="utf-8" async defer></script>
