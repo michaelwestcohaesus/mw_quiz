@@ -42,9 +42,6 @@ $(function() {
             //   var truths ++;
             // }
           }
-          // console.log(truths);
-          //Append truth count to result element within the last fieldset,
-          //displaying a score to the user upon form submission
           console.log(truths);
           //Append truth count to result element within the last fieldset,
           //displaying a score to the user upon form submission
@@ -54,6 +51,7 @@ $(function() {
         return false;
     });
 });
+
 (function(){
 	var content = document.getElementById('content');
 	var html = '';
@@ -93,7 +91,6 @@ $(function() {
 	content.innerHTML = template(json);
 
 })();
->>>>>>> develop
 
 //dynamicLoad.js
 //Allows fieldsets to load one at a time, with next and back buttons
