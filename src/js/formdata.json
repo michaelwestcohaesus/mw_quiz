@@ -2,6 +2,7 @@
 	"title": "Quiz",
 	"welcomemessage": "Are you ready to begin?",
 	"submitmessage" : "That's it, you're done! Let's see what you scored!",
+	"passratepercentage": 50,
 	"questions": [{
 		"name": "question1",
 		"title": "Curiosity is a car-sized robotic rover exploring Gale Crater on Mars, but which year did it land on the red planet?",

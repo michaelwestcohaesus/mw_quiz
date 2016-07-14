@@ -45,7 +45,17 @@ $(function() {
           console.log(truths);
           //Append truth count to result element within the last fieldset,
           //displaying a score to the user upon form submission
-          $('#result').html('<span> You got ' + truths.toString() + ' out of ' + (formData.questions.length).toString() + ' correct.</span>');
+          var customMessage;
+          var quizLength = formData.questions.length;
+          var passrate = (formData.passratepercentage)/100;
+          if(truths == quizLength) {
+            customMessage = "Wow, full marks! You passed!";
+          } else if (truths/quizLength < passrate) {
+            customMessage = "You failed!";
+          } else {
+            customMessage = "You passed!";
+          }
+          $('#result').html('<span> Score: ' + truths.toString() + '/' + quizLength.toString() + '</span>' + '</br>' + customMessage);
         });
         // $('#output').text(JSON.stringify(answerData, undefined, 2));
         return false;
@@ -69,22 +79,22 @@ $(function() {
     return json;
 	})();
 
-	Handlebars.registerHelper('bold', function(text){
-		text = Handlebars.escapeExpression(text);
-		return new Handlebars.SafeString(
-			'<b>' + text + '</b>'
-		);
-	});
-
-	Handlebars.registerHelper('list', function(items, options){
-		var out = '<ul>';
-
-		for(var i = 0, length = items.length; i < length; i++){
-			out += '<li>' + options.fn(items[i]) + '</li>';
-		}
-
-		return out + '</ul>';
-	});
+	// Handlebars.registerHelper('bold', function(text){
+	// 	text = Handlebars.escapeExpression(text);
+	// 	return new Handlebars.SafeString(
+	// 		'<b>' + text + '</b>'
+	// 	);
+	// });
+	//
+	// Handlebars.registerHelper('list', function(items, options){
+	// 	var out = '<ul>';
+	//
+	// 	for(var i = 0, length = items.length; i < length; i++){
+	// 		out += '<li>' + options.fn(items[i]) + '</li>';
+	// 	}
+	//
+	// 	return out + '</ul>';
+	// });
 
 	var template = Handlebars.compile(document.getElementById('questions-template').innerHTML);
 
