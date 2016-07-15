@@ -1,8 +1,8 @@
 {
-	"title": "Quiz",
+	"title": "Astronomy Quiz",
 	"welcomemessage": "Are you ready to begin?",
 	"submitmessage" : "That's it, you're done! Let's see what you scored!",
-	"passratepercentage": 50,
+	"passratepercentage": 75,
 	"questions": [{
 		"name": "question1",
 		"title": "Curiosity is a car-sized robotic rover exploring Gale Crater on Mars, but which year did it land on the red planet?",
@@ -134,6 +134,94 @@
 			"value": 4,
 			"title": "Hydrogen",
 			"correct": true
+		}]
+	}, {
+		"name": "question7",
+		"title": "Which of the following is an example of a vector quantity?",
+		"type": "radio",
+		"has correct": true,
+		"answers": [{
+			"value": 1,
+			"title": "Temperature",
+			"correct": false
+		}, {
+			"value": 2,
+			"title": "Velocity",
+			"correct": true
+		}, {
+			"value": 3,
+			"title": "Volume",
+			"correct": false
+		}, {
+			"value": 4,
+			"title": "Mass",
+			"correct": false
+		}]
+	}, {
+		"name": "question8",
+		"title": "Which of the following is not a type of galxay?",
+		"type": "radio",
+		"has correct": true,
+		"answers": [{
+			"value": 1,
+			"title": "Spiral",
+			"correct": false
+		}, {
+			"value": 2,
+			"title": "Discal",
+			"correct": true
+		}, {
+			"value": 3,
+			"title": "Irregular",
+			"correct": false
+		}, {
+			"value": 4,
+			"title": "Eliptical",
+			"correct": false
+		}]
+	}, {
+		"name": "question9",
+		"title": "How old is the solar system?",
+		"type": "radio",
+		"has correct": true,
+		"answers": [{
+			"value": 1,
+			"title": "5000 years",
+			"correct": false
+		}, {
+			"value": 2,
+			"title": "5 million years",
+			"correct": false
+		}, {
+			"value": 3,
+			"title": "500 billion years",
+			"correct": false
+		}, {
+			"value": 4,
+			"title": "5 billion years",
+			"correct": true
+		}]
+	}, {
+		"name": "question10",
+		"title": "What is the name given to a piece of space rock that lands on the Earth's surface?",
+		"type": "radio",
+		"has correct": true,
+		"answers": [{
+			"value": 1,
+			"title": "Meteorite",
+			"correct": true
+		}, {
+			"value": 2,
+			"title": "Meteoroid",
+			"correct": false
+		}, {
+			"value": 3,
+			"title": "Meteor",
+			"correct": false
+		}, {
+			"value": 4,
+			"title": "Asteroid",
+			"correct": false
 		}]
 	}],
   "thankyoumessage": "Thanks for taking part!"
