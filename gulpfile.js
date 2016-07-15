@@ -7,7 +7,8 @@ var uglify = require('gulp-uglify');
 var rename = require("gulp-rename");
 var concat = require('gulp-concat');
 var htmlmin = require('gulp-htmlmin');
-var connect = require('gulp-connect')
+var connect = require('gulp-connect');
+var jsonminify = require('gulp-jsonminify');
 
 //Convert scss to css
 gulp.task('sass', function () {
@@ -45,6 +46,12 @@ gulp.task('minifyhtml', function() {
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('dist/html/'));
 });
+//Minify json files
+gulp.task('minifyjson', function () {
+    return gulp.src(['src/data/*.json'])
+        .pipe(jsonminify())
+        .pipe(gulp.dest('dist/data/'));
+});
 //Set up server
 // gulp.task('connect', function(){
 // connect.server({
@@ -56,6 +63,7 @@ gulp.task('minifyhtml', function() {
 // });
 //Watch scss, css and js files for changes
 gulp.task('default', function () {
+  gulp.watch(['src/data/*json'], ['minifyjson']);
 	gulp.watch(['src/html/*.html'], ['minifyhtml']);
 	gulp.watch(['src/stylesheets/scss/*.scss'], ['sass']);
 	gulp.watch(['src/stylesheets/css/*.css'], ['compresscss']);

@@ -44,4 +44,4 @@ http://localhost:8080
 ####Gulp has been configured to:
 - concat all js files
 - convert .scss files to .css
-- minify js, css and html
+- minify js, json, css and html

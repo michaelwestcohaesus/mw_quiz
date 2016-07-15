@@ -5,7 +5,7 @@ $(function() {
         //Create json object from form submission
         var answerData = $(this).serializeObject();
         // console.log(Object.keys(answerData).length);
-        $.getJSON('../../src/js/formdata.json', function(formData){
+        $.getJSON('../../dist/data/formdata.json', function(formData){
           console.log(formData);
           //truth will count the amount of correct answers given in the submitted form
           var truths = 0;
