@@ -17,30 +17,10 @@ npm install
 ```
 gulp
 ```
-####Now to run the project you will need to spin up a local server (because the json file is being served locally)
-####If you have python2 installed you can
+####Your default browser should open at,
 ```
-python -m SimpleHTTPServer
+http://localhost:8080/html/dist/
 ```
-####and for python3
-```
-python3 -m http.server
-```
-####You can now access the files in your browser from
-```
-http://localhost:8000
-```
-####Or if node.js is your preference
-```
-npm install -g http-server
-http-server -c-1
-```
-#### Files should be available at
-```
-http://localhost:8080
-```
-####Navigate into the dist folder where you will find index.html
-
 ####Gulp has been configured to:
 - concat all js files
 - convert .scss files to .css
